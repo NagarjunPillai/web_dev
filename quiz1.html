@@ -1,0 +1,81 @@
+<html>
+
+
+<head>
+ <link rel="stylesheet" type="text/css" href="css/style2.css" />
+
+
+<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+<body>
+
+
+
+    <div id="header">
+        <img class="logoimage" src="http://stjosephs.ac.in/images/logo.jpg" align="middle">
+    </div>
+    <div id="quiztitle">
+        <h1><b>QUIZ TITLE</b></h1>
+    </div>
+    <div id="bar1">
+        <button id="nextbutton" class="next-btn" onclick="loadnextquestion();"><span>Next </span></button>
+        <button id="previousbutton" class="prev-btn" onclick="loadpreviousquestion();"><span>Previous </span></button>
+
+    
+        <span id="countdown" class="timer"></span>
+    <script>
+        var sec=1800;
+        function secondPassed(){
+            var mins= Math.round((sec-30)/60);
+            var rem=sec%60;
+            if(rem<10){
+                rem="0" + rem;    
+            }
+            document.getElementById('countdown').innerHTML ="00 : " +mins + " : " + rem;
+            if(sec==0){
+                clearInterval(countdownTimer);
+     //document.getElementById('countdown').innerHTML = "Session Expired";
+       window.location="index1.php";         
+                
+            }
+            else{
+                sec--;
+            }
+            
+        }
+        var countdownTimer= setInterval('secondPassed()',1000);
+        </script>
+    
+    </div>
+    
+  
+
+    
+<div id="block1">
+    <div id="question" class ="question"></div>
+    
+<label class="option"><input type="radio" name="option" value="1" /> <span id="opt1"></span></label>
+<label class="option"><input type="radio" name="option" value="2" /> <span id="opt2"></span></label>
+<label class="option"><input type="radio" name="option" value="3" /> <span id="opt3"></span></label>
+<label class="option"><input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
+
+	
+                </div>
+            
+                
+               
+           
+    <button id="submit" class="btn submit" onclick="loadhomepage();">Submit Quiz</button> 
+   
+
+
+<script src="question2.js"></script>
+<script src="quiz-script.js"></script>
+</body>
+
+
+</html>
